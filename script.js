@@ -21,7 +21,7 @@ async function startCamera() {
             video: {
                 facingMode: currentCamera
             },
-            audio: true
+            audio: false
         });
 
         video.srcObject = currentStream;
