@@ -61,6 +61,12 @@ captureBtn.addEventListener("click", () => {
 
 // App Start
 startCamera();
+currentStream = await navigator.mediaDevices.getUserMedia({
+    video: {
+        facingMode: currentCamera
+    },
+    audio: true
+});
 const recordBtn = document.getElementById("record");
 
 let mediaRecorder;
