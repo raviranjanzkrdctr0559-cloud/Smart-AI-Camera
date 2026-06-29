@@ -61,3 +61,57 @@ captureBtn.addEventListener("click", () => {
 
 // App Start
 startCamera();
+const recordBtn = document.getElementById("record");
+
+let mediaRecorder;
+let recordedChunks = [];
+let recording = false;
+
+recordBtn.addEventListener("click", () => {
+
+    if (!recording) {
+
+        recordedChunks = [];
+
+        mediaRecorder = new MediaRecorder(currentStream);
+
+        mediaRecorder.ondataavailable = (e) => {
+            if (e.data.size > 0) {
+                recordedChunks.push(e.data);
+            }
+        };
+
+        mediaRecorder.onstop = () => {
+
+            const blob = new Blob(recordedChunks, {
+                type: "video/webm"
+            });
+
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "video.webm";
+            a.click();
+
+            URL.revokeObjectURL(url);
+
+        };
+
+        mediaRecorder.start();
+
+        recordBtn.innerHTML = "⏹ Stop";
+
+        recording = true;
+
+    } else {
+
+        mediaRecorder.stop();
+
+        recordBtn.innerHTML = "🎥 Record";
+
+        recording = false;
+
+    }
+
+});
