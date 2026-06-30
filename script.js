@@ -115,3 +115,17 @@ recordBtn.addEventListener("click", () => {
     }
 
 });
+const timerBtn = document.getElementById("timer");
+const countdown = document.getElementById("countdown");
+
+let timerSeconds = 3;
+
+timerBtn.addEventListener("click", () => {
+
+    timerSeconds++;
+
+    if (timerSeconds > 10) timerSeconds = 3;
+
+    timerBtn.textContent = "⏱️ " + timerSeconds + "s";
+
+});
