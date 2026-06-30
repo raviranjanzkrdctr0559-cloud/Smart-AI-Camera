@@ -43,19 +43,42 @@ switchBtn.addEventListener("click", () => {
 
 });
 
-// Photo Capture
+// Photo Capture with Timer
 captureBtn.addEventListener("click", () => {
 
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    let count = timerSeconds;
 
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(video, 0, 0);
+    countdown.style.display = "block";
+    countdown.innerHTML = count;
 
-    const link = document.createElement("a");
-    link.download = "photo.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+    const interval = setInterval(() => {
+
+        count--;
+
+        if (count > 0) {
+
+            countdown.innerHTML = count;
+
+        } else {
+
+            clearInterval(interval);
+
+            countdown.style.display = "none";
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(video, 0, 0);
+
+            const link = document.createElement("a");
+            link.download = "photo.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+
+        }
+
+    },1000);
 
 });
 
