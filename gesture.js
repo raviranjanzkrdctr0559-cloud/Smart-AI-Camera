@@ -38,7 +38,15 @@ function onResults(results){
     statusBox.innerHTML = "🤖 AI Ready";
 
 }
-const camera = new Camera(video,{
+const videoElement = document.getElementById("video");
+
+const camera = new Camera(videoElement, {
+    onFrame: async () => {
+        await hands.send({ image: videoElement });
+    },
+    width: 640,
+    height: 480
+});
     onFrame: async()=>{
         await hands.send({image:video});
     },
