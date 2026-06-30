@@ -11,3 +11,4 @@ async function startAI() {
 }
 
 startAI();
+console.log("Gesture.js Loaded");
