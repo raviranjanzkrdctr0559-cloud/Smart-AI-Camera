@@ -21,7 +21,9 @@ hands.setOptions({
 hands.onResults(onResults);
 
 function onResults(results) {
-
+    
+    console.log(results);
+    
     if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
         statusBox.innerHTML = "✋ Hand Detected";
     } else {
