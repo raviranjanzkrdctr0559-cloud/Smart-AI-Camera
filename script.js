@@ -115,6 +115,7 @@ recordBtn.addEventListener("click", () => {
     }
 
 });
+
 const timerBtn = document.getElementById("timer");
 const countdown = document.getElementById("countdown");
 
