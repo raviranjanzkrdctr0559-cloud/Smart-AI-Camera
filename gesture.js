@@ -29,18 +29,15 @@ hands.onResults(onResults);
 
 function onResults(results){
 
-    if(results.multiHandLandmarks.length > 0){
+ if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
 
-        statusBox.innerHTML = "✋ Hand Detected";
+    statusBox.innerHTML = "✋ Hand Detected";
 
-    }else{
+} else {
 
-        statusBox.innerHTML = "🤖 AI Ready";
-
-    }
+    statusBox.innerHTML = "🤖 AI Ready";
 
 }
-
 const camera = new Camera(video,{
     onFrame: async()=>{
         await hands.send({image:video});
