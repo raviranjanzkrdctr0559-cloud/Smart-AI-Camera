@@ -39,7 +39,7 @@ function onResults(results) {
         );
 
         console.log("Pinch Distance:", distance);
-const zoom = 1 + distance * 2;
+if (value > 3) value = 3;
 updateZoom(zoom);
 
     } else {
