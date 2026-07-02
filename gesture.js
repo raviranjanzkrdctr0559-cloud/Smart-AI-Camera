@@ -39,7 +39,8 @@ function onResults(results) {
         );
 
         console.log("Pinch Distance:", distance);
-
+         const zoom = 1 + (0.25 - distance) * 10;
+updateZoom(zoom);
     } else {
 
         statusBox.innerHTML = "🤖 AI Ready";
