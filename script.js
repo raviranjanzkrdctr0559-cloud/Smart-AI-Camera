@@ -4,8 +4,9 @@ const canvas = document.getElementById("canvas");
 const captureBtn = document.getElementById("capture");
 const switchBtn = document.getElementById("switch");
 
-let currentCamera = "environment";
-let currentStream;
+let currentCamera = "user";
+video.srcObject = currentStream;
+await video.play();
 
 // Camera Start
 async function startCamera() {
