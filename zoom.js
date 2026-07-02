@@ -14,7 +14,7 @@ function updateZoom(value) {
 
 function animateZoom() {
 
-    currentZoom += (targetZoom - currentZoom) * 0.45;
+    currentZoom += (targetZoom - currentZoom) * 0.35;
 
     zoomValue.textContent = currentZoom.toFixed(1) + "x";
 
