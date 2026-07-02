@@ -2,16 +2,25 @@ const zoomValue = document.getElementById("zoomValue");
 const cameraVideo = document.getElementById("video");
 
 let currentZoom = 1;
+let targetZoom = 1;
 
 function updateZoom(value) {
 
     if (value < 1) value = 1;
-    if (value > 5) value = 5;
+    if (value > 3) value = 3;
 
-    currentZoom = value;
+    targetZoom = value;
+}
+
+function animateZoom() {
+
+    currentZoom += (targetZoom - currentZoom) * 0.15;
 
     zoomValue.textContent = currentZoom.toFixed(1) + "x";
 
-    // Digital Zoom
-   cameraVideo.style.transform = `scale(${currentZoom})`;
+    cameraVideo.style.transform = `scale(${currentZoom})`;
+
+    requestAnimationFrame(animateZoom);
 }
+
+animateZoom();
