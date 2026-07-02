@@ -1,5 +1,5 @@
 const zoomValue = document.getElementById("zoomValue");
-const video = document.getElementById("video");
+const cameraVideo = document.getElementById("video");
 
 let currentZoom = 1;
 
@@ -13,5 +13,5 @@ function updateZoom(value) {
     zoomValue.textContent = currentZoom.toFixed(1) + "x";
 
     // Digital Zoom
-    video.style.transform = `scale(${currentZoom})`;
+   cameraVideo.style.transform = `scale(${currentZoom})`;
 }
