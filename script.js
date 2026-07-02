@@ -5,7 +5,7 @@ const captureBtn = document.getElementById("capture");
 const switchBtn = document.getElementById("switch");
 
 let currentCamera = "user";
-video.srcObject = currentStream;
+let currentStream;
 await video.play();
 
 // Camera Start
@@ -25,7 +25,8 @@ async function startCamera() {
             audio: false
         });
 
-        video.srcObject = currentStream;
+       video.srcObject = currentStream;
+await video.play();
 
     } catch (err) {
         alert("Camera Error: " + err.message);
