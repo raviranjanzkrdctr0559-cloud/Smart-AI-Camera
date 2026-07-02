@@ -26,6 +26,19 @@ function onResults(results) {
     
     if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
         statusBox.innerHTML = "✋ Hand Detected";
+        
+   const hand = results.multiHandLandmarks[0];
+
+    const thumb = hand[4];   // Thumb tip
+    const index = hand[8];   // Index finger tip
+
+    const distance = Math.hypot(
+        thumb.x - index.x,
+        thumb.y - index.y
+    );
+
+    console.log("Pinch Distance:", distance);
+}
     } else {
         statusBox.innerHTML = "🤖 AI Ready";
     }
