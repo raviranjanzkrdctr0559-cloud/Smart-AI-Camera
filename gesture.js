@@ -12,10 +12,10 @@ const hands = new Hands({
 });
 
 hands.setOptions({
-    maxNumHands: 2,
-    modelComplexity: 1,
-    minDetectionConfidence: 0.7,
-    minTrackingConfidence: 0.7
+    maxNumHands: 1,
+    modelComplexity: 0,
+   minDetectionConfidence: 0.5,
+   minTrackingConfidence: 0.5,
 });
 
 hands.onResults(onResults);
